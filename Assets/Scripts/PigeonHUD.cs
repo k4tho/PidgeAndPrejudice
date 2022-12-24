@@ -57,7 +57,7 @@ public static class PigeonHUD
     
     private static void displayStamina()
     {
-        Game.StaminaBar.SetStamina(Pigeon.getStamina()/GameParameters.pigeonMaximumStamina);
+        //Game.StaminaBar.SetStamina(Pigeon.getStamina()/GameParameters.pigeonMaximumStamina);
     }
     
 }

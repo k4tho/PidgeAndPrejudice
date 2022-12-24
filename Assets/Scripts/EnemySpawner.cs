@@ -8,35 +8,49 @@ public class EnemySpawner : MonoBehaviour
     public GameObject PedestrianPrefab;
     public GameObject AnimalPatrolPrefab;
     public GameObject MilitaryPrefab;
+    public Text WaveText;
 
     public int waveLevel;
     private Coroutine waveInProgress;
 
-    private float[] xPositions = new float[] { -23f, 23f };
-    private float[] leftYPositions = new float[] { -3f, 8f, 17.8f };
-    private float[] rightYPositions = new float[] { -3f, 5.7f, 18.14f };
+    private float[] xPositions;
+    private float[] leftYPositions;
+    private float[] rightYPositions;
+
+    private int numEnemiesAlive;
 
     private int numPedestriansSpawned;
     private int numAnimalPatrolsSpawned;
     private int numMilitariesSpawned;
 
-
-
     void Start()
     {
-        waveLevel = 0;
-        ResetEnemies();
+        xPositions = new float[] { GameObject.Find("Wall").transform.position.x, GameObject.Find("Wall (1)").transform.position.x };
+        leftYPositions = new float[] { GameObject.Find("SmallPlatform (3)").transform.position.y, GameObject.Find("SmallPlatform (9)").transform.position.y, GameObject.Find("LargePlatform (1)").transform.position.y, GameObject.Find("Ground").transform.position.y };
+        rightYPositions = new float[] { GameObject.Find("MediumPlatform (6)").transform.position.y, GameObject.Find("SmallPlatform (7)").transform.position.y, GameObject.Find("LargePlatform (6)").transform.position.y, GameObject.Find("Ground").transform.position.y };
 
+        //ResetGame();
         SpawnNextWave();
+    }
+
+    void Update()
+    {
+        if (numEnemiesAlive == 0)
+        {
+            waveInProgress = null;
+            SpawnNextWave();
+        }
+    }
+
+    public void EnemyIsKilled()
+    {
+        numEnemiesAlive--;
     }
 
     public void SpawnNextWave()
     {
-        Readouts.UpdateWave();
         waveLevel++;
-        numPedestriansSpawned = 0;
-        numAnimalPatrolsSpawned = 0;
-        numMilitariesSpawned = 0;
+        ResetEnemies();
 
         SpawnPedestrians();
         SpawnAnimalPatrols();
@@ -47,17 +61,17 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator WaitForNextWave()
     {
-
         yield return new WaitForSeconds(GetTimeBetweenWaves());
         SpawnNextWave();
     }
-
+    
     private void SpawnPedestrians()
     {
         while (numPedestriansSpawned < GetNumEnemiesToSpawn(GameParameters.startNumPedestrian))
         {
             SpawnEnemy(PedestrianPrefab);
             numPedestriansSpawned++;
+            numEnemiesAlive++;
         }
     }
 
@@ -67,15 +81,17 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy(AnimalPatrolPrefab);
             numAnimalPatrolsSpawned++;
+            numEnemiesAlive++;
         }
     }
-
+    
     private void SpawnMilitaries()
     {
         while (numMilitariesSpawned < GetNumEnemiesToSpawn(GameParameters.startNumMilitary))
         {
             SpawnEnemy(MilitaryPrefab);
             numMilitariesSpawned++;
+            numEnemiesAlive++;
         }
     }
 
@@ -87,19 +103,24 @@ public class EnemySpawner : MonoBehaviour
     private Vector3 FindSpawnLocation()
     {
         int randomXSpawnLocation = Random.Range(0, 2);
-        int randomYSpawnLocation = Random.Range(0, 3);
-
+        int randomYSpawnLocation;
+        
+        if (randomXSpawnLocation == 0)
+            randomYSpawnLocation = Random.Range(0, leftYPositions.Length);
+        else
+            randomYSpawnLocation = Random.Range(0, rightYPositions.Length);
+        
         Vector3 spawnLocation;
-
+        
         if (randomXSpawnLocation == 0)
         {
-            spawnLocation = new Vector3(xPositions[randomXSpawnLocation], leftYPositions[randomYSpawnLocation], 0f);
+            spawnLocation = new Vector3(xPositions[randomXSpawnLocation] + 1f, leftYPositions[randomYSpawnLocation] + 1f, 0f);
         }
         else
         {
-            spawnLocation = new Vector3(xPositions[randomXSpawnLocation], rightYPositions[randomYSpawnLocation], 0f);
+            spawnLocation = new Vector3(xPositions[randomXSpawnLocation] - 1f, rightYPositions[randomYSpawnLocation] + 1f, 0f);
         }
-
+        
         return spawnLocation;
     }
 
@@ -107,17 +128,24 @@ public class EnemySpawner : MonoBehaviour
     {
         int multiplier = (waveLevel - 1) / GameParameters.addMoreEnemiesEveryXRounds;
         int numEnemiesToSpawn = numEnemiesFirstWave + (multiplier * GameParameters.numToIncreaseAmountOfEnemyBy);
-
+        
         return numEnemiesToSpawn;
     }
-
+    
     private int GetTimeBetweenWaves()
     {
         if ((GameParameters.maxWaitTimeBetweenWaves - waveLevel) < GameParameters.minWaitTimeBetweenWaves)
             return GameParameters.minWaitTimeBetweenWaves;
         return GameParameters.maxWaitTimeBetweenWaves - waveLevel;
     }
-
+    
+    private void ResetEnemies()
+    {
+        numPedestriansSpawned = 0;
+        numAnimalPatrolsSpawned = 0;
+        numMilitariesSpawned = 0;
+    }
+    
     private void DestroyAllEnemies()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
@@ -127,12 +155,11 @@ public class EnemySpawner : MonoBehaviour
             Destroy(enemy);
         }
     }
-
-    public void ResetEnemies()
+    
+    public void ResetGame()
     {
         DestroyAllEnemies();
-        numPedestriansSpawned = 0;
+        ResetEnemies();
         waveLevel = 0;
-        SpawnNextWave();
     }
 }

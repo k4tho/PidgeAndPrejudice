@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     public SpriteRenderer EnemySpriteRenderer;
     public GameObject EnemyProjectilePrefab;
 
-    protected int enemiesKilled;
     protected int score;
 
     protected int health;
@@ -34,8 +33,6 @@ public class Enemy : MonoBehaviour
         isMovingToRight = false;
         numberOfMoves = 0;
         moveAmount = 0;
-        enemiesKilled = 0;
-        score = 0;
     }
 
     void Update()
@@ -182,7 +179,7 @@ public class Enemy : MonoBehaviour
 
     protected void KillOffEnemy()
     {
-        Readouts.UpdateScore();
+        //Readouts.UpdateScore();
         Destroy(gameObject);
     }
 
@@ -216,10 +213,5 @@ public class Enemy : MonoBehaviour
     protected float GetEnemyYCoordinate()
     {
         return EnemySpriteRenderer.transform.position.y;
-    }
-
-    private void UpdateScore()
-    {
-        score = score + 10;
     }
 }

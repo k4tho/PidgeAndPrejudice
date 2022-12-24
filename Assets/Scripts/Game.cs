@@ -42,7 +42,7 @@ public class Game : MonoBehaviour
         isRunning = true;
         Pigeon.Reset();
         Readouts.Reset();
-        EnemySpawner.ResetEnemies();
+        //EnemySpawner.ResetEnemies();
         CanvasGroupDisplayer.Show(Stats);
     }
     

@@ -41,14 +41,14 @@ public static class GameParameters
     public static float enemyMilitaryMoveAmount = .075f;
 
     //health
-    public static int pedestrianHealth = 100;
-    public static int animalControlHealth = 150;
-    public static int militaryHealth = 200;
+    public static int pedestrianHealth = 50;
+    public static int animalControlHealth = 100;
+    public static int militaryHealth = 150;
     public static int normalGunDamageAmount = 50;
 
     //waves of enemy
-    public static int startNumPedestrian = 5;
-    public static int startNumAnimalPatrol = 3;
+    public static int startNumPedestrian = 3;
+    public static int startNumAnimalPatrol = 2;
     public static int startNumMilitary = 0;
     public static int addMoreEnemiesEveryXRounds = 3;
     public static int numToIncreaseAmountOfEnemyBy = 2;
