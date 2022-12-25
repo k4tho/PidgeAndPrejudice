@@ -28,7 +28,7 @@ public class PowerUpDown : MonoBehaviour
         SpawnPowerSpriteInNewLocation();
     }
 
-    protected void SpawnPowerSpriteInNewLocation()
+    public virtual void SpawnPowerSpriteInNewLocation()
     {
         PowerSpriteRenderer.transform.position = FindNewLocationForPower();
     }

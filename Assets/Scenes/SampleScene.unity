@@ -234,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PowerSpriteRenderer: {fileID: 242891494}
   MouseShooter: {fileID: 0}
+  Grandma: {fileID: 2052285116}
 --- !u!54 &242891492
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -328,7 +329,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &247762938
 GameObject:
@@ -531,7 +532,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
@@ -695,7 +696,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &369204194 stripped
 GameObject:
@@ -1036,7 +1037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5149455101049774689, guid: 720f2dd78124a28478b232da049372d5, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5149455101049774689, guid: 720f2dd78124a28478b232da049372d5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1977,7 +1978,7 @@ RectTransform:
   m_Children:
   - {fileID: 459975712}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2932,7 +2933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1746751657}
-  - component: {fileID: 1746751656}
+  - component: {fileID: 1746751658}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -2940,22 +2941,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1746751656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746751655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6c50fc15458194f9d03a8682929449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PedestrianPrefab: {fileID: 8162564494157663809, guid: 45d6808e29a9b474aac24355cd3f3429, type: 3}
-  AnimalPatrolPrefab: {fileID: 3299020765292733404, guid: e89ac78a3f23e7f4394ca3db7b20672f, type: 3}
-  MilitaryPrefab: {fileID: 3894256735923087033, guid: 15df4880b5095ad4ead23599d1a17932, type: 3}
-  waveLevel: 0
 --- !u!4 &1746751657
 Transform:
   m_ObjectHideFlags: 0
@@ -2969,8 +2954,25 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1746751658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746751655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b39ff521ada254db13a2dd98c7dd15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PedestrianPrefab: {fileID: 8162564494157663809, guid: 45d6808e29a9b474aac24355cd3f3429, type: 3}
+  AnimalPatrolPrefab: {fileID: 3299020765292733404, guid: e89ac78a3f23e7f4394ca3db7b20672f, type: 3}
+  MilitaryPrefab: {fileID: 3894256735923087033, guid: 15df4880b5095ad4ead23599d1a17932, type: 3}
+  WaveText: {fileID: 0}
+  waveLevel: 0
 --- !u!1 &1780993426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3079206102194623144, guid: fdfc5d2c1651c1b41a690f2aa65057db, type: 3}
@@ -3157,7 +3159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pigeon: {fileID: 316840331}
-  EnemySpawner: {fileID: 1746751656}
+  EnemySpawner: {fileID: 0}
   Grandma: {fileID: 2052285116}
   PowerUpDown: {fileID: 0}
   StaminaBar: {fileID: 1518980918}
@@ -3244,6 +3246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pigeon: {fileID: 316840331}
+  PowerUpBread: {fileID: 242891491}
   GrandmaSpriteRenderer: {fileID: 2052285117}
   AliveGrandma: {fileID: 21300000, guid: a1cb057dced043643ae2eb83904c141f, type: 3}
   DeadGrandma: {fileID: 21300000, guid: bdfb151d97da6b841863053329435d9c, type: 3}
@@ -3312,5 +3315,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

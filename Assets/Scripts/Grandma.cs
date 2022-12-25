@@ -5,6 +5,7 @@ using UnityEngine;
 public class Grandma : MonoBehaviour
 {
     public Pigeon Pigeon;
+    public PowerUpBread PowerUpBread;
     public SpriteRenderer GrandmaSpriteRenderer;
     public Sprite AliveGrandma;
     public Sprite DeadGrandma;
@@ -31,9 +32,10 @@ public class Grandma : MonoBehaviour
         yield return new WaitForSeconds(GameParameters.grandmaRespawnAfterDeathTimer);
         SpawnGrandmaInNewLocation();
     }
+
     IEnumerator WaitToChangeLocation()
     {
-        yield return new WaitForSeconds(GameParameters.grandmaChangeLocationTimer);
+        yield return new WaitForSeconds(GameParameters.powerChangeLocationTimer);
         SpawnGrandmaInNewLocation();
     }
 
@@ -41,6 +43,7 @@ public class Grandma : MonoBehaviour
     {
         ChangeToAliveSprite();
         GrandmaSpriteRenderer.transform.position = FindNewSpawnLocation();
+        PowerUpBread.FollowGrandma(GrandmaSpriteRenderer.transform.position);
         StartCoroutine(WaitToChangeLocation());
     }
 

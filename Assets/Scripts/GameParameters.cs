@@ -20,7 +20,6 @@ public static class GameParameters
 
     //power ups & down timers
     public static float powerChangeLocationTimer = 30f;
-    public static float grandmaChangeLocationTimer = 30f;
     public static float grandmaRespawnAfterDeathTimer = 1f;
     public static float fastSpeedTimer = 10f;
     public static float slowSpeedTimer = 10f;
