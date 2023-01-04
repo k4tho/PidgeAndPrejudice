@@ -563,6 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 5496958241916113577, guid: 211ebb154d6e8490196fae1e4bf52a20, type: 3}
   Pigeon: {fileID: 316840331}
+  Grandma: {fileID: 2052285116}
   PowerUpLmg: {fileID: 888512475}
   PowerDownFakeLmg: {fileID: 1191725778}
   isGunSlow: 0
@@ -2315,7 +2316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3079206102194623144, guid: fdfc5d2c1651c1b41a690f2aa65057db, type: 3}
       propertyPath: m_TagString
-      value: ground
+      value: wall
       objectReference: {fileID: 0}
     - target: {fileID: 3079206102588887365, guid: fdfc5d2c1651c1b41a690f2aa65057db, type: 3}
       propertyPath: m_LocalScale.x
@@ -2355,7 +2356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3079206103049644886, guid: fdfc5d2c1651c1b41a690f2aa65057db, type: 3}
       propertyPath: m_TagString
-      value: ground
+      value: wall
       objectReference: {fileID: 0}
     - target: {fileID: 3079206103238712428, guid: fdfc5d2c1651c1b41a690f2aa65057db, type: 3}
       propertyPath: m_Layer

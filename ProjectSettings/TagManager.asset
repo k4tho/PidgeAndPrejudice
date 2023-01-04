@@ -16,6 +16,7 @@ TagManager:
   - FakeLMG
   - enemybullet
   - enemy
+  - wall
   layers:
   - Default
   - TransparentFX
