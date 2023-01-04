@@ -48,10 +48,5 @@ public class PowerUpDown : MonoBehaviour
         if (changeLocationTimer != null)
             changeLocationTimer = null;
     }
-
-    public void ApplyRandomFiring()
-    {
-        MouseShooter.GoBerserk();
-    }
 }
 

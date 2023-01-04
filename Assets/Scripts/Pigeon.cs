@@ -352,13 +352,12 @@ public class Pigeon : MonoBehaviour
     /**
      * power up/down code
     */
-    //public void ShotGrandma()
-    //{
-        //ReturnToNormalcy();
-        //isUsingPower = true;
-        //PowerUpDown.ApplyRandomFiring();
-        //StartCoroutine(StartPowerUpDownTimer(GameParameters.randomFiringTimer));
-    //}
+    public void ShotGrandma()
+    {
+        ReturnToNormalcy();
+        MouseShooter.GoBerserk();
+        StartCoroutine(StartPowerUpDownTimer(GameParameters.randomFiringTimer));
+    }
 
     IEnumerator StartPowerUpDownTimer(float timer)
     {
@@ -396,6 +395,7 @@ public class Pigeon : MonoBehaviour
         slowthPowerDown = false;
         MouseShooter.isGunSlow = false;
         MouseShooter.isGunFast = false;
+        MouseShooter.ResetRandomFiring();
         hasGunUpgrade = false;
         hasGunDowngrade = false;
     }

@@ -54,4 +54,7 @@ public static class GameParameters
     public static int maxWaitTimeBetweenWaves = 40;
     public static int minWaitTimeBetweenWaves = 0;
     public static float waitTimeBetweenEachEnemySpawn = .5f;
+
+    //shooting stuff
+    public static float bulletAliveTimer = 2f;
 }

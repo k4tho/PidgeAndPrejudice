@@ -7,6 +7,7 @@ public class MouseShooter : MonoBehaviour
     // wire up the prefab you want to be your projectile
     public GameObject ProjectilePrefab;
     public Pigeon Pigeon;
+    public Grandma Grandma;
     public PowerUpLmg PowerUpLmg;
     public PowerDownFakeLmg PowerDownFakeLmg;
     
@@ -14,6 +15,7 @@ public class MouseShooter : MonoBehaviour
     public bool isGunSlow = false;
     public bool isGunFast = false;
     public bool isBerserk = false;
+    private Coroutine beserkCoroutine;
     private float speed = 5f;
 
 
@@ -97,13 +99,26 @@ public class MouseShooter : MonoBehaviour
 
     public void GoBerserk()
     {
-        StartCoroutine(RandomFiringTime());
+        Grandma.MakeGrandmaInvincible();
+        beserkCoroutine = StartCoroutine(RandomFiringTime());
     }
     
     private IEnumerator RandomFiringTime()
     {
         isBerserk = true;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(GameParameters.randomFiringTimer);
+        ResetRandomFiring();
+    }
+
+    public void ResetRandomFiring()
+    {
+        Grandma.MakeGrandmaWeak();
         isBerserk = false;
+        beserkCoroutine = null;
+    }
+
+    public void ResetGunSpeed()
+    {
+
     }
 }

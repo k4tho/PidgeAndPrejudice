@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float SecondsAlive = 2f;
-
     void Start()
     {
         StartCoroutine(CountdownToSelfDestruct());
@@ -13,7 +11,7 @@ public class Projectile : MonoBehaviour
 
     IEnumerator CountdownToSelfDestruct()
     {
-        yield return new WaitForSeconds(SecondsAlive);
+        yield return new WaitForSeconds(GameParameters.bulletAliveTimer);
         Destroy(gameObject);
     }
 

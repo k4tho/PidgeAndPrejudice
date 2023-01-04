@@ -10,6 +10,8 @@ public class Grandma : MonoBehaviour
     public Sprite AliveGrandma;
     public Sprite DeadGrandma;
     private GameObject[] grounds;
+    private bool invincibleGrandma;
+
 
     void Start()
     {
@@ -21,8 +23,12 @@ public class Grandma : MonoBehaviour
     {
         if (col.gameObject.tag == "bullet")
         {
-            StartCoroutine(WaitToSpawnAfterDeath());
-            //Pigeon.ShotGrandma();
+            if (invincibleGrandma == false)
+            {
+                Debug.Log("Weak");
+                StartCoroutine(WaitToSpawnAfterDeath());
+                Pigeon.ShotGrandma();
+            }
         }
     }
 
@@ -45,6 +51,17 @@ public class Grandma : MonoBehaviour
         GrandmaSpriteRenderer.transform.position = FindNewSpawnLocation();
         PowerUpBread.FollowGrandma(GrandmaSpriteRenderer.transform.position);
         StartCoroutine(WaitToChangeLocation());
+        Debug.Log(invincibleGrandma);
+    }
+
+    public void MakeGrandmaInvincible()
+    {
+        invincibleGrandma = true;
+    }
+
+    public void MakeGrandmaWeak()
+    {
+        invincibleGrandma = false;
     }
 
     private Vector3 FindNewSpawnLocation()
