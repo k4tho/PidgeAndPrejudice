@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    private bool invincibility;
+
     void Start()
     {
         StartCoroutine(CountdownToSelfDestruct());
+        StartCoroutine(WaitForInvincibilityPeriod());
     }
 
     IEnumerator CountdownToSelfDestruct()
@@ -17,9 +20,26 @@ public class Projectile : MonoBehaviour
 
     public void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "ground")
+        if (invincibility == false)
         {
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator WaitForInvincibilityPeriod() 
+    {
+        MakeInvincible();
+        yield return new WaitForSeconds(GameParameters.bulletInvinvibilityTimer);
+        MakeDestructible();
+    }
+
+    private void MakeInvincible()
+    {
+        invincibility = true;
+    }
+
+    private void MakeDestructible()
+    {
+        invincibility = false;
     }
 }

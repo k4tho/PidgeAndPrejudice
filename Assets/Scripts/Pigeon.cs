@@ -210,10 +210,18 @@ public class Pigeon : MonoBehaviour
         {
             if (pigeonCurrentStamina > 0f)
             {
-                isOnGround = false;
-                pigeonRigidBody.useGravity = false;
-                Fly(newDirection);
-                
+                if (Input.GetKey(KeyCode.W) || Input.GetKey((KeyCode.UpArrow)))
+                {
+                    isOnGround = false;
+                    pigeonRigidBody.useGravity = false;
+                    Fly(newDirection);
+                }
+                else
+                {
+                    isOnGround = false;
+                    pigeonRigidBody.useGravity = true;
+                    Fly(newDirection);
+                }
             }
             else
             {

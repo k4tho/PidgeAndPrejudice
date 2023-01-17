@@ -33,7 +33,7 @@ public static class GameParameters
     public static float enemyPedestrianShootRadius = 4f;
     public static float enemyAnimalPatrolShootRadius = 5f;
     public static float enemyMilitaryShootRadius = 6f;
-    public static float waitToShootSeconds = 5f;
+    public static float waitToShootSeconds = 2f;
     public static float enemyMoveAmount = .05f;
     public static float enemyPedestrianMoveAmount = .025f;
     public static float enemyAnimalPatrolMoveAmount = .05f;
@@ -57,4 +57,5 @@ public static class GameParameters
 
     //shooting stuff
     public static float bulletAliveTimer = 2f;
+    public static float bulletInvinvibilityTimer = .05f;
 }

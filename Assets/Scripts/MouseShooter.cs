@@ -112,7 +112,7 @@ public class MouseShooter : MonoBehaviour
 
     public void ResetRandomFiring()
     {
-        Grandma.MakeGrandmaWeak();
+        Grandma.MakeGrandmaDestructible();
         isBerserk = false;
         beserkCoroutine = null;
     }
