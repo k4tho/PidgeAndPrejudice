@@ -44,7 +44,7 @@ public class Pigeon : MonoBehaviour
 
     void Start()
     {
-        //PigeonHUD.EnablePigeonHUD();
+        PigeonHUD.EnablePigeonHUD();
         StartGame();
     }
     void Update()

@@ -568,6 +568,7 @@ MonoBehaviour:
   PowerDownFakeLmg: {fileID: 1191725778}
   isGunSlow: 0
   isGunFast: 0
+  isBerserk: 0
 --- !u!1 &339399058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,7 +2059,7 @@ GameObject:
   - component: {fileID: 1191725778}
   m_Layer: 0
   m_Name: Fake Lmg
-  m_TagString: FakeLMG
+  m_TagString: LMG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3145,7 +3146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1856245036
 MonoBehaviour:
   m_ObjectHideFlags: 0

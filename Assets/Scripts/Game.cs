@@ -42,13 +42,15 @@ public class Game : MonoBehaviour
         isRunning = true;
         Pigeon.Reset();
         Readouts.Reset();
-        //EnemySpawner.ResetEnemies();
+        EnemySpawner.ResetGame();
+        EnemySpawner.SpawnNextWave();
         CanvasGroupDisplayer.Show(Stats);
     }
     
     public void EndGame()
     {
         isRunning = false;
+        EnemySpawner.ResetGame();
         CanvasGroupDisplayer.Show(EndScreen);
         Readouts.UpdateEndScreen();
         CanvasGroupDisplayer.Hide(Stats);

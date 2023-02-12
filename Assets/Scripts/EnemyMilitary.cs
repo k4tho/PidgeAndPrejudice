@@ -9,6 +9,7 @@ public class EnemyMilitary : Enemy
         health = GameParameters.militaryHealth;
         enemyMoveAmount = GameParameters.enemyMilitaryMoveAmount;
         shootRadius = GameParameters.enemyMilitaryShootRadius;
+        pointsForEnemyDeath = GameParameters.pointsForMilitary;
         base.Start();
     }
 

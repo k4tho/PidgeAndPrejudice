@@ -6,9 +6,13 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public Pigeon Pigeon;
+    public GameObject EnemySpawnerObject;
+    public EnemySpawner EnemySpawner;
     
     public SpriteRenderer EnemySpriteRenderer;
     public GameObject EnemyProjectilePrefab;
+
+    protected int pointsForEnemyDeath;
 
     protected int score;
 
@@ -25,6 +29,12 @@ public class Enemy : MonoBehaviour
     protected int numberOfMoves;
     protected int moveAmount;
     private float speed = 5f;
+
+    void Awake()
+    {
+        EnemySpawnerObject = GameObject.FindGameObjectWithTag("enemyspawner");
+        EnemySpawner = EnemySpawnerObject.GetComponent<EnemySpawner>();
+    }
 
     public virtual void Start()
     {
@@ -179,7 +189,8 @@ public class Enemy : MonoBehaviour
 
     protected void KillOffEnemy()
     {
-        //Readouts.UpdateScore();
+        EnemySpawner.EnemyIsKilled();
+        Readouts.UpdateScore(pointsForEnemyDeath);
         Destroy(gameObject);
     }
 

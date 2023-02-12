@@ -6,20 +6,18 @@ using UnityEngine.UI;
 
 public static class Readouts
 {
-    
     public static int score;
     private static int wave;
-    public static int PointsForKill = 10;
     private static Game Game;
 
 
     // Start is called before the first frame update
-    //void Start()
-    //{
-        //Reset();
-        //ShowScore(score);
-        //ShowWave(0);
-    //}
+    static void start()
+    {
+        Reset();
+        ShowScore(score);
+        ShowWave(0);
+    }
 
     public static void ShowScore(int score)
     {
@@ -35,9 +33,9 @@ public static class Readouts
         Game.WaveDisplay.text = "WAVE " + wave;
     }
 
-    public static void UpdateScore()
+    public static void UpdateScore(int pointsForKill)
     {
-        score = score + PointsForKill;
+        score = score + pointsForKill;
         ShowScore(score);
     }
 

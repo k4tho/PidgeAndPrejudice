@@ -25,8 +25,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-    //invincibility period for when the bullet first gets instantiated so that the bullet doesn't get destroyed automatically
+
     IEnumerator WaitForInvincibilityPeriod() 
     {
         MakeInvincible();

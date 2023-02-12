@@ -9,6 +9,7 @@ public class EnemyAnimalPatrol : Enemy
         health = GameParameters.animalControlHealth;
         enemyMoveAmount = GameParameters.enemyAnimalPatrolMoveAmount;
         shootRadius = GameParameters.enemyAnimalPatrolShootRadius;
+        pointsForEnemyDeath = GameParameters.pointsForAnimalControl;
         base.Start();
     }
 

@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class PowerDownFakeLmg : PowerUpDown
 {
-    public float ApplySlowGunSpeed()
+    public float ApplySlowGunSpeed(float speed)
     {
-        return GameParameters.slowBulletSpeed;
-    }
-
-    public float ApplySlowGunSpray()
-    {
-        return GameParameters.slowGunSprayTimer;
+        return speed * GameParameters.slowGunSpeed;
     }
 }

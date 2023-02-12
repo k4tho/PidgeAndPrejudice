@@ -15,8 +15,6 @@ public static class PigeonHUD
     {
         Game = game;
         Pigeon = game.Pigeon;
-       
-        
     }
 
     public static void UpdateHUD()
@@ -57,7 +55,7 @@ public static class PigeonHUD
     
     private static void displayStamina()
     {
-        //Game.StaminaBar.SetStamina(Pigeon.getStamina()/GameParameters.pigeonMaximumStamina);
+        Game.StaminaBar.SetStamina(Pigeon.getStamina()/GameParameters.pigeonMaximumStamina);
     }
     
 }
