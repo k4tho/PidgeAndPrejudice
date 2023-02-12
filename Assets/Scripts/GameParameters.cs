@@ -15,8 +15,8 @@ public static class GameParameters
     //power ups & down
     public static float fastSpeedMoveAmount = 3f;
     public static float slowSpeedMoveAmount = .25f;
-    public static float fastGunSpeed = 3f;
-    public static float slowGunSpeed = .5f;
+    public static float slowBulletSpeed = .5f;
+    public static float fastBulletSpeed = 10f;
 
     //power ups & down timers
     public static float powerChangeLocationTimer = 30f;
@@ -58,4 +58,10 @@ public static class GameParameters
     //shooting stuff
     public static float bulletAliveTimer = 2f;
     public static float bulletInvinvibilityTimer = .05f;
+    public static float bulletAvgSpeed = 3f;
+
+    public static float normalGunSprayTimer = .5f;
+    public static float fastGunSprayTimer = .1f;
+    public static float slowGunSprayTimer = 1.25f;
+    public static float beserkGunSprayTimer = .5f;
 }
