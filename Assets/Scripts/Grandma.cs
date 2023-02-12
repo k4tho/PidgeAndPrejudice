@@ -13,10 +13,14 @@ public class Grandma : MonoBehaviour
     private GameObject[] grounds;
     private bool invincibleGrandma;
 
+    void Awake()
+    {
+        grounds = GameObject.FindGameObjectsWithTag("ground");
+    }
+
 
     void Start()
     {
-        grounds = GameObject.FindGameObjectsWithTag("ground");
         SpawnGrandmaInNewLocation();
     }
 
