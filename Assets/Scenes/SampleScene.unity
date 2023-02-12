@@ -1118,7 +1118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5149455101049774700, guid: 720f2dd78124a28478b232da049372d5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 720f2dd78124a28478b232da049372d5, type: 3}
@@ -1253,7 +1253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &661814109
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1903,7 +1903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1103400358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2883,7 +2883,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2937,7 +2937,7 @@ GameObject:
   - component: {fileID: 1746751658}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: enemyspawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2969,6 +2969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b39ff521ada254db13a2dd98c7dd15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Game: {fileID: 0}
   PedestrianPrefab: {fileID: 8162564494157663809, guid: 45d6808e29a9b474aac24355cd3f3429, type: 3}
   AnimalPatrolPrefab: {fileID: 3299020765292733404, guid: e89ac78a3f23e7f4394ca3db7b20672f, type: 3}
   MilitaryPrefab: {fileID: 3894256735923087033, guid: 15df4880b5095ad4ead23599d1a17932, type: 3}
@@ -3146,7 +3147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1856245036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3160,7 +3161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pigeon: {fileID: 316840331}
-  EnemySpawner: {fileID: 0}
+  EnemySpawner: {fileID: 1746751658}
   Grandma: {fileID: 2052285116}
   PowerUpDown: {fileID: 0}
   StaminaBar: {fileID: 1518980918}

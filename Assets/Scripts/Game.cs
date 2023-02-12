@@ -18,24 +18,20 @@ public class Game : MonoBehaviour
     public  Text WaveDisplay;
     public Text EndScoreText;
     public CanvasGroup Stats;
+
+    private bool isRunning;
     void Awake()
     {
+        isRunning = false;
         UI.InitializeUI(this);
         CanvasGroupDisplayer.Show(StartScreen);
         CanvasGroupDisplayer.Hide(EndScreen);
-    }
-    void Start()
-    {
-        
-        
-        
     }
 
     void Update()
     {
         
     }
-    private bool isRunning = true;
 
     public void StartGame()
     {

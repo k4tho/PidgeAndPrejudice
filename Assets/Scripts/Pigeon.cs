@@ -74,7 +74,7 @@ public class Pigeon : MonoBehaviour
             }
         }
          
-        //PigeonHUD.UpdateHUD();
+        PigeonHUD.UpdateHUD();
         UseCorrectSprite();
         
     }
@@ -179,56 +179,58 @@ public class Pigeon : MonoBehaviour
         if (CheckForMovementPower() == true)
             newDirection = ApplyMovementChanges(direction);
 
-
         FaceCorrectDirection(newDirection);
-        if (isOnGround)
-        {
-            if (pigeonCurrentStamina>0f)
-            {
-                if (newDirection.y > 0f)
-                {
-                    
-                    Fly(newDirection);
-                    isOnGround = false;
-                    pigeonRigidBody.useGravity = false;
 
+        if (MouseShooter.isBerserk == false)
+        {
+            if (isOnGround)
+            {
+                if (pigeonCurrentStamina > 0f)
+                {
+                    if (newDirection.y > 0f)
+                    {
+
+                        Fly(newDirection);
+                        isOnGround = false;
+                        pigeonRigidBody.useGravity = false;
+
+                    }
+                    else
+                    {
+                        Walk(newDirection);
+                    }
+                }
+                else
+                {
+
+                    Walk(newDirection);
+
+                }
+
+            }
+            else
+            {
+                if (pigeonCurrentStamina > 0f)
+                {
+                    if (Input.GetKey(KeyCode.W) || Input.GetKey((KeyCode.UpArrow)))
+                    {
+                        isOnGround = false;
+                        pigeonRigidBody.useGravity = false;
+                        Fly(newDirection);
+                    }
+                    else
+                    {
+                        isOnGround = false;
+                        pigeonRigidBody.useGravity = true;
+                        Fly(newDirection);
+                    }
                 }
                 else
                 {
                     Walk(newDirection);
                 }
             }
-            else
-            {
-                
-                Walk(newDirection);
-                
-            }
-            
         }
-        else
-        {
-            if (pigeonCurrentStamina > 0f)
-            {
-                if (Input.GetKey(KeyCode.W) || Input.GetKey((KeyCode.UpArrow)))
-                {
-                    isOnGround = false;
-                    pigeonRigidBody.useGravity = false;
-                    Fly(newDirection);
-                }
-                else
-                {
-                    isOnGround = false;
-                    pigeonRigidBody.useGravity = true;
-                    Fly(newDirection);
-                }
-            }
-            else
-            {
-                Walk(newDirection);
-            }
-        }
-       
     }
 
     

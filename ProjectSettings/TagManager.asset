@@ -17,6 +17,7 @@ TagManager:
   - enemybullet
   - enemy
   - wall
+  - enemyspawner
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public Game Game;
     public GameObject PedestrianPrefab;
     public GameObject AnimalPatrolPrefab;
     public GameObject MilitaryPrefab;
@@ -28,12 +29,9 @@ public class EnemySpawner : MonoBehaviour
         xPositions = new float[] { GameObject.Find("Wall").transform.position.x, GameObject.Find("Wall (1)").transform.position.x };
         leftYPositions = new float[] { GameObject.Find("SmallPlatform (3)").transform.position.y, GameObject.Find("SmallPlatform (9)").transform.position.y, GameObject.Find("LargePlatform (1)").transform.position.y, GameObject.Find("Ground").transform.position.y };
         rightYPositions = new float[] { GameObject.Find("MediumPlatform (6)").transform.position.y, GameObject.Find("SmallPlatform (7)").transform.position.y, GameObject.Find("LargePlatform (6)").transform.position.y, GameObject.Find("Ground").transform.position.y };
-
-        //ResetGame();
-        SpawnNextWave();
     }
 
-    void Update()
+    public void CheckIfAllEnemiesKilled()
     {
         if (numEnemiesAlive == 0)
         {
@@ -41,15 +39,16 @@ public class EnemySpawner : MonoBehaviour
             SpawnNextWave();
         }
     }
-
     public void EnemyIsKilled()
     {
         numEnemiesAlive--;
+        CheckIfAllEnemiesKilled();
     }
 
     public void SpawnNextWave()
     {
         waveLevel++;
+        Readouts.ShowWave(waveLevel);
         ResetEnemies();
 
         SpawnPedestrians();
