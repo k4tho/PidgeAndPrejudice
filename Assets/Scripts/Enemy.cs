@@ -65,6 +65,7 @@ public class Enemy : MonoBehaviour
             }
             MoveRandomly(moveAmount);
         }
+
     }
 
     public void OnCollisionEnter(Collision col)
@@ -72,9 +73,24 @@ public class Enemy : MonoBehaviour
         if (col.gameObject.tag == "bullet")
         {
             TakesDamage();
+            CheckIfDead();
         }
 
-        CheckIfDead();
+        if (col.gameObject.tag == "bread" || col.gameObject.tag == "chicken" || col.gameObject.tag == "LMG" || col.gameObject.tag == "FakeLmg" || col.gameObject.tag == "grandma")
+        {
+            PassObject();
+        }
+    }
+
+    public void PassObject()
+    {
+        StartCoroutine(WaitToPassObject());
+    }
+    IEnumerator WaitToPassObject()
+    {
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        yield return new WaitForSeconds(1f);
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     protected void ChasePigeon()

@@ -27,7 +27,7 @@ public class MouseShooter : MonoBehaviour
         float newSpeed = GameParameters.bulletAvgSpeed;
         float newGunSprayTimer = GameParameters.normalGunSprayTimer;
 
-        if (CheckForGunSpeed() == true)
+        if (CheckForGunChanges() == true)
         {
             newSpeed = ApplyGunSpeedChanges();
             newGunSprayTimer = ApplyGunSprayChanges();
@@ -93,7 +93,7 @@ public class MouseShooter : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mouseScreenPosition);
     }
 
-    private bool CheckForGunSpeed()
+    private bool CheckForGunChanges()
     {
         if (isGunFast == true)
             return true;

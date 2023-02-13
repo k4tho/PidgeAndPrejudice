@@ -18,6 +18,7 @@ TagManager:
   - enemy
   - wall
   - enemyspawner
+  - grandma
   layers:
   - Default
   - TransparentFX

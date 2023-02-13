@@ -147,8 +147,6 @@ public class Pigeon : MonoBehaviour
             MouseShooter.isGunFast = true;
             hasGunUpgrade = true;
             StartCoroutine(StartPowerUpDownTimer(GameParameters.gunUpgradeTimer));
-
-            //needs to change gun to lmg
         }
         else if (col.gameObject.tag == "FakeLMG")
         {
@@ -156,8 +154,6 @@ public class Pigeon : MonoBehaviour
             MouseShooter.isGunSlow = true;
             hasGunDowngrade = true;
             StartCoroutine(StartPowerUpDownTimer(GameParameters.gunDowngradeTimer));
-
-            //needs to change gun to pistol
         }
         
         else if (col.gameObject.tag == "enemybullet")
