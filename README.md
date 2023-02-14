@@ -3,6 +3,9 @@
 ## Description
 Pidge and Prejudice (or PaP) is a 2D arcade style platform shooter where the player takes the role of a vengeful pigeon invading a city to kill the humans that have domesticated and outcasted all pigeons. Players control the pigeon from a side-view and have limited lives that are lost when struck by a hostile human. The game ends when the player no longer has any lives remaining.
 
+## Playable Link
+https://k4tho.itch.io/pidge-and-prejudice
+
 ## Core Functionalities
 ### Movement - Walking and Flying:
 - Players will be able to walk via the WASD and arrow keys
@@ -22,6 +25,8 @@ Pidge and Prejudice (or PaP) is a 2D arcade style platform shooter where the pla
 - LMG (Power Up): Upgrades pigeon's pistol to an lmg. Applies faster gun spray and bullet speed.
 - Fake Lmg (Power Down): A trap thrown by the military to trick the pigeon into grabbing a bad gun. Applies slower gun spray and bullet speed.
 
+## Bugs
+- Mouse shooter aim is still a little wonky. Perhaps it has something to do with the velocity of the projectile.
 ## Collaboration
 - Rylen Sakamoto: user input for pigeon and character movement
 - Elly Horbaly: art and game hud
